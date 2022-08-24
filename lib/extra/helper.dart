@@ -1,69 +1,125 @@
+import 'package:awesome_card/awesome_card.dart';
 import 'package:awesome_card/extra/card_type.dart';
 import 'package:flutter/material.dart';
 
-Widget getCardTypeIcon({CardType? cardType, String? cardNumber}) {
+const String kVmCardImgPath = 'images/card_provider/vm';
+
+Widget? getCardTypeIcon({
+  CardType? cardType,
+  String? cardNumber,
+}) {
   switch (cardType ?? getCardType(cardNumber!)) {
-    case CardType.americanExpress:
+    case CardType.aleloAlimentacao:
       return Image.asset(
-        'images/card_provider/american_express.png',
-        width: 55,
+        '$kVmCardImgPath/alelo_alimentacao.png',
+        width: 40,
         height: 40,
         package: 'awesome_card',
       );
-    case CardType.dinersClub:
+    case CardType.aleloRefeicao:
       return Image.asset(
-        'images/card_provider/diners_club.png',
+        '$kVmCardImgPath/alelo_refeicao.png',
+        width: 40,
+        height: 40,
+        package: 'awesome_card',
+      );
+    case CardType.amex:
+      return Image.asset(
+        '$kVmCardImgPath/amex.png',
+        width: 40,
+        height: 40,
+        package: 'awesome_card',
+      );
+    case CardType.aura:
+      return Image.asset(
+        '$kVmCardImgPath/aura.png',
+        width: 40,
+        height: 40,
+        package: 'awesome_card',
+      );
+    case CardType.diners:
+      return Image.asset(
+        '$kVmCardImgPath/diners.png',
         width: 40,
         height: 40,
         package: 'awesome_card',
       );
     case CardType.discover:
       return Image.asset(
-        'images/card_provider/discover.png',
-        width: 70,
-        height: 50,
-        package: 'awesome_card',
-      );
-    case CardType.jcb:
-      return Image.asset(
-        'images/card_provider/jcb.png',
+        '$kVmCardImgPath/discover.png',
         width: 40,
-        height: 40,
-        package: 'awesome_card',
-      );
-    case CardType.masterCard:
-      return Image.asset(
-        'images/card_provider/master_card.png',
-        width: 55,
-        height: 40,
-        package: 'awesome_card',
-      );
-    case CardType.maestro:
-      return Image.asset(
-        'images/card_provider/maestro.png',
-        width: 55,
-        height: 40,
-        package: 'awesome_card',
-      );
-    case CardType.rupay:
-      return Image.asset(
-        'images/card_provider/rupay.png',
-        width: 80,
-        height: 50,
-        package: 'awesome_card',
-      );
-    case CardType.visa:
-      return Image.asset(
-        'images/card_provider/visa.png',
-        width: 55,
         height: 40,
         package: 'awesome_card',
       );
     case CardType.elo:
       return Image.asset(
-        'images/card_provider/elo.png',
-        width: 50,
-        height: 50,
+        'images/card_provider/elo_circle.png',
+        width: 40,
+        height: 40,
+        package: 'awesome_card',
+      );
+    case CardType.hipercard:
+      return Image.asset(
+        '$kVmCardImgPath/hipercard.png',
+        width: 40,
+        height: 40,
+        package: 'awesome_card',
+      );
+    case CardType.jcb:
+      return Image.asset(
+        '$kVmCardImgPath/jcb.png',
+        width: 40,
+        height: 40,
+        package: 'awesome_card',
+      );
+    case CardType.master:
+      return Image.asset(
+        '$kVmCardImgPath/master.png',
+        width: 40,
+        height: 40,
+        package: 'awesome_card',
+      );
+    case CardType.sodexoAlimentacao:
+      return Image.asset(
+        '$kVmCardImgPath/sodexo_alimentacao.png',
+        width: 40,
+        height: 40,
+        package: 'awesome_card',
+      );
+    case CardType.sodexoRefeicao:
+      return Image.asset(
+        '$kVmCardImgPath/sodexo_refeicao.png',
+        width: 40,
+        height: 40,
+        package: 'awesome_card',
+      );
+    case CardType.unknown:
+      return Image.asset(
+        '$kVmCardImgPath/unknown.png',
+        width: 40,
+        height: 40,
+        color: Colors.white,
+        package: 'awesome_card',
+      );
+    case CardType.visa:
+      return Image.asset(
+        '$kVmCardImgPath/visa.png',
+        width: 40,
+        height: 40,
+        package: 'awesome_card',
+      );
+    case CardType.vrAlimentacao:
+      return Image.asset(
+        '$kVmCardImgPath/vr_alimentacao.png',
+        width: 40,
+        height: 40,
+        package: 'awesome_card',
+      );
+    case CardType.vrRefeicao:
+      return Image.asset(
+        '$kVmCardImgPath/vr_refeicao.png',
+        width: 40,
+        height: 40,
         package: 'awesome_card',
       );
     default:
@@ -78,7 +134,7 @@ String getCardTypeMask({CardType? cardType, String? cardNumber}) {
     case CardType.americanExpress:
       return 'XXXX XXXXXX XXXXX';
 
-    case CardType.dinersClub:
+    case CardType.diners:
       if (trimmedCardLength == 14) {
         return 'XXXX XXXXXX XXXX';
       }
@@ -90,7 +146,7 @@ String getCardTypeMask({CardType? cardType, String? cardNumber}) {
     case CardType.jcb:
       return 'XXXX XXXX XXXX XXXX';
 
-    case CardType.masterCard:
+    case CardType.master:
       return 'XXXX XXXX XXXX XXXX';
 
     case CardType.maestro:
@@ -136,11 +192,11 @@ CardType getCardType(String cardNumber) {
   if (rAmericanExpress.hasMatch(cardNumber)) {
     return CardType.americanExpress;
   } else if (rMasterCard.hasMatch(cardNumber)) {
-    return CardType.masterCard;
+    return CardType.master;
   } else if (rVisa.hasMatch(cardNumber)) {
     return CardType.visa;
   } else if (rDinersClub.hasMatch(cardNumber)) {
-    return CardType.dinersClub;
+    return CardType.diners;
   } else if (rRupay.hasMatch(cardNumber)) {
     // Additional check to see if it's a discover card
     // Some discover card starts with 6011 and some rupay card starts with 60
@@ -162,5 +218,5 @@ CardType getCardType(String cardNumber) {
     return CardType.maestro;
   }
 
-  return CardType.other;
+  return CardType.unknown;
 }

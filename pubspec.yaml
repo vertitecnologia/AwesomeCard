@@ -25,6 +25,7 @@ flutter:
   assets:
     - images/
     - images/card_provider/
+    - images/card_provider/vm/
   #
   # For details regarding assets in packages, see
   # https://flutter.dev/assets-and-images/#from-packages

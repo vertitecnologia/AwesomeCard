@@ -135,13 +135,11 @@ class CardFrontLayout {
                                   ? textName!
                                   : cardHolderName!,
                               style: TextStyle(
-                                package: 'awesome_card',
-                                color: textColor,
-                                fontWeight: FontWeight.w500,
-                                fontFamily: 'MavenPro',
-                                fontSize: 17,
-                                overflow: TextOverflow.ellipsis,
-                              ),
+                                  package: 'awesome_card',
+                                  color: textColor,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'MavenPro',
+                                  fontSize: 17),
                             ),
                           ),
                           SizedBox(
