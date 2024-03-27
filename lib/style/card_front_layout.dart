@@ -92,9 +92,7 @@ class CardFrontLayout {
                           fontSize: 22,
                         ),
                       ),
-                      SizedBox(
-                        height: 15,
-                      ),
+
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
